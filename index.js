@@ -96,8 +96,7 @@ app.get('/api/users/:_id/logs', (req, res) => {
       const info = {
         username: user.username,
         count: exercisesDetails.length,
-        duration,
-        date: dateFormatted.toDateString(),
+        log: exercisesDetails,
         _id: user._id
       };
 

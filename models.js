@@ -69,8 +69,9 @@ const createExercise = (data, done) => {
 
 const getLogs = (data, done) => {
   const { username, from, to, limit } = data;
+  let query;
   if (from && to) {
-    const query = Exercise.find({ 
+    query = Exercise.find({ 
         username: data.username,
         date: {
           $gte: from,
@@ -83,7 +84,7 @@ const getLogs = (data, done) => {
     });
 
   } else {
-    const query = Exercise.find({ 
+    query = Exercise.find({ 
         username: data.username        
     }, function(err, exercises) {
       if (err) return console.log(err);
@@ -96,7 +97,7 @@ const getLogs = (data, done) => {
     query.limit(limit)
   }
 
-  query.exec;
+  query.exec();
 }
 
 exports.userSchema = User;
